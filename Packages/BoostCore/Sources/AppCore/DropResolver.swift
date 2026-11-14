@@ -1,4 +1,7 @@
 import BlockEngine
+#if canImport(CoreGraphics)
+import CoreGraphics
+#endif
 import Foundation
 
 /// Cadres des éléments affichés sur le canvas, en coordonnées du canvas.
