@@ -6,9 +6,12 @@ let package = Package(
     platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         .library(name: "HubLink", targets: ["HubLink"]),
+        .library(name: "BlockEngine", targets: ["BlockEngine"]),
     ],
     targets: [
         .target(name: "HubLink"),
+        .target(name: "BlockEngine"),
         .testTarget(name: "HubLinkTests", dependencies: ["HubLink"]),
+        .testTarget(name: "BlockEngineTests", dependencies: ["BlockEngine"]),
     ]
 )

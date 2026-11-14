@@ -11,10 +11,10 @@ Projet indépendant, sans lien avec le groupe LEGO. Aucun code ni asset tiers.
 | Étape | Contenu | État |
 |---|---|---|
 | 1 | Couche BLE `HubLink` (codec, Bluetooth, faux hub, session) | fait |
-| 2 | Moteur d'exécution `BlockEngine` + tests | à venir |
+| 2 | Moteur d'exécution `BlockEngine` (modèle, catalogue, interpréteur) + tests | fait |
 | 3 | Éditeur SwiftUI et projet Xcode | à venir |
 
-## Tester la couche BLE
+## Lancer les tests
 
 ```sh
 cd Packages/BoostCore
