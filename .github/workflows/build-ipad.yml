@@ -5,6 +5,9 @@ on:
     branches: ["**"]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 concurrency:
   group: build-ipad-${{ github.ref }}
   cancel-in-progress: true
@@ -49,6 +52,17 @@ jobs:
         with:
           name: Blockwork-unsigned-ipa
           path: Blockwork-unsigned.ipa
+
+      - name: Publish IPA as a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest-build --yes --cleanup-tag || true
+          gh release create latest-build Blockwork-unsigned.ipa \
+            --title "Dernière compilation" \
+            --notes "App non signée, compilée automatiquement depuis $GITHUB_SHA. À signer avec son propre identifiant Apple avant installation." \
+            --prerelease \
+            --target "$GITHUB_SHA"
 
       - name: Upload build log
         if: always()
